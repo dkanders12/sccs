@@ -11,6 +11,10 @@ document.getElementById("contact").addEventListener("click", () => {
   var kontactContainer = document.querySelector(".kontact-container");
   kontactContainer.classList.toggle("active");
 });
+document.getElementById("navtag3").addEventListener("click", () => {
+  var kontactContainer = document.querySelector(".tickets");
+  kontactContainer.classList.toggle("active");
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   let form = document.getElementById("myForm");
@@ -39,4 +43,32 @@ document.addEventListener("DOMContentLoaded", function () {
     // If both fields are filled, you can reload the page
     location.reload();
   });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  function updatePrice(price) {
+    // Update the price in the top-sale section
+    document.getElementById("totalPrice").innerText = price + "$";
+  }
+
+  // Add event listeners
+  document.getElementById("perPerson").addEventListener("click", function () {
+    updatePrice(25);
+  });
+
+  document
+    .getElementById("forTwoPeople")
+    .addEventListener("click", function () {
+      updatePrice(40);
+    });
+
+  document
+    .getElementById("forFourPeople")
+    .addEventListener("click", function () {
+      updatePrice(60);
+    });
+
+  // Check if the function is defined
+  if (typeof updatePrice === "undefined") {
+    console.error("updatePrice function is not defined.");
+  }
 });
